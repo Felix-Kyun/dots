@@ -1,0 +1,25 @@
+
+alias clock="tty-clock -SsctBC6"
+alias config="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME"
+alias cs="config status"
+alias cadd="config add"
+alias cc="config commit -m"
+alias cup="config push -u origin main"
+alias ls="lsd"
+alias e="nvim"
+alias n="ncmpcpp"
+alias ip="ip a | grep 'inet 192.168' | xargs | sed 's/\// /g' |cut -d ' ' -f2"
+alias brighte="xrandr --output HDMI-1 --brightness "
+alias brighti="xrandr --output eDP-1 --brightness "
+alias gs="git status --short"
+alias c="clear;pfetch"
+alias p="sudo pacman"
+alias fan="acpic '\_SB.PCI0.LPC0.EC0.GZ44'"
+alias pacman='yay'
+alias bright='busctl --user -- set-property rs.wl-gammarelay / rs.wl.gammarelay '
+alias pic='kitten icat'
+
+
+# edit dots 
+alias en="cd ~/.config/nvim; nvim"
+alias ez="nvim ~/.zshrc"

@@ -1,0 +1,80 @@
+// vim:fileencoding=utf-8:foldmethod=marker
+/*
+ *      ______     ___         __ __                
+ *     / ____/__  / (_)  __   / //_/_  ____  ______ 
+ *    / /_  / _ \/ / / |/_/  / ,< / / / / / / / __ \
+ *   / __/ /  __/ / />  <   / /| / /_/ / /_/ / / / /
+ *  /_/    \___/_/_/_/|_|  /_/ |_\__, /\__,_/_/ /_/ 
+ *                              /____/              
+ *                 @Felix-Kyun
+ *               Felix Kyun#3934
+ */
+
+configuration {
+  font: "Fira Code Nerd Font 8";
+  show-icons: true;
+  modi: "window,drun";
+  display-drun: " ";
+  display-window: " ";
+}
+
+@theme "/dev/null"
+@import "colors.rasi"
+
+* {
+  background-color: @bg;
+  text-color: @fg;
+  margin: 1;
+  padding: 1;
+  spacing: 0;
+}
+
+window {
+  border: 2px;
+  border-color: @bc;
+  location: center;
+  width: 50%;
+  border-radius: 10px;
+}
+
+element {}
+element-text { vertical-align: 0.7; }
+element-icon { size: 24px; }
+
+element selected {
+  background-color: @bg-alt;
+  border-radius: 5px;
+}
+element-icon selected { background-color: @bg-alt; }
+element-text selected { background-color: @bg-alt; }
+
+entry {
+  background-color: @bg-alt;
+  padding: 12;
+  placeholder: "Search";
+  expand: true;
+  blink: true;
+}
+
+inputbar {
+  margin: 1% 0.5%;
+  background-color: @bg-alt;
+  children: [prompt, entry];
+  border-radius: 10px;
+}
+
+listview {
+  columns: 2;
+  lines: 5;
+  margin: 0.5% 0.1%;
+  padding: 0.5%;
+}
+
+mainbox { children: [inputbar, listview]; }
+
+prompt {
+  background-color: @bg-alt;
+  enabled: true;
+  padding: 1%;
+  vertical-align: 0.5;
+}

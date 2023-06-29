@@ -1,0 +1,5 @@
+plugins = [
+    # "Duckonaut/split-monitor-workspaces",
+    "https://github.com/hyprwm/hyprland-plugins/tree/main/hyprbars"
+]
+

@@ -1,0 +1,8 @@
+--https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/info-cava
+
+Configuration can be made by providing the following command line arguments:
+
+-f|--framerate FRAMERATE : Framerate to be used by cava, default is 60.
+-b|--bars BARS: Amount of bars, default is 8.
+-e|--extra_colors EXTRA_COLORS: Color gradient used on higher values, separated by commas, default is fdd,fcc,fbb,faa, spaces and #s are ignored.
+-c|--channels {stereo,left,right,average}: Audio channels to be used, defaults to stereo.

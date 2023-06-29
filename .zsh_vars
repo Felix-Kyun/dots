@@ -1,0 +1,4 @@
+export EDITOR=nvim
+export FTP_SERVER=ftp://epiz_31649090:felixkyun@ftpupload.net/
+export QT_QPA_PLATFORMTHEME="gtk2"
+

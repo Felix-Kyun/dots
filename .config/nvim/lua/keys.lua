@@ -1,0 +1,1 @@
+-- migrated to config.nest due to using nest.nvim

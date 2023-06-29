@@ -1,0 +1,100 @@
+* {
+    font-family: Fira Code Nerd Font;
+    font-size: 8px;
+  }
+
+window#waybar {
+  background-color: rgba(46, 52, 64, 0.20);
+  transition-property: background-color;
+  transition-duration: .5s;
+}
+
+#workspaces,
+#backlight,
+#clock,
+#cpu,
+#memory,
+#temperature,
+#tray,
+#window,
+#custom-arch_logo,
+#pulseaudio,
+#battery {
+  background: rgba(46, 52, 64, 0.30);
+  margin: 4px 2px;
+  padding: 0px 5px;
+  border-radius: 4px;
+}
+
+#window {
+  color: #88C0D0;
+}
+
+#clock {
+  color: #BF616A;
+}
+
+#cpu, #memory {
+  color: #5E81AC;
+}
+
+#temperature {
+  color: #D08770;
+}
+
+#battery {
+  color: #B48EAD;
+}
+
+#pulseaudio {
+  color: #A3BE8C;
+}
+
+#backlight {
+  color: #EBCB8B;
+}
+
+#custom-arch_logo {
+  margin-left: 5px;
+  font-size: 16px;
+  color: #5E81AC;
+  padding-left: 10px;
+}
+
+#workspaces button {
+  /* color: #EBCB8B; */
+  color: #5E81AC;
+}
+
+#workspaces button.active {
+  color: #BF616A;
+
+}
+
+#workspaces button.persistent {
+  /* color: #88C0D0; */
+  /* color: #5E81AC; */
+  color: #D8DEE9;
+}
+
+@keyframes blink {
+    to {
+        color: #D8DEE9;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #BF616A;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#window.empty {
+  background: transparent;
+  outline-color: transparent;
+  border-color: transparent;
+  color: transparent;
+  box-shadow: none;
+}

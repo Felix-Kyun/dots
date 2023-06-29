@@ -1,0 +1,4 @@
+https://github.com/polybar/polybar-scripts/tree/master/polybar-scripts/system-bluetooth-bluetoothctl
+
+Configuration
+Use the set-alias feature of bluetoothctl to customize your device names.
