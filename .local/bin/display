@@ -1,0 +1,28 @@
+#! /usr/bin/env lua
+
+--[[
+  Felix Kyun
+  Felix Kyun#3934
+  iamfelixkyun@gmail.com
+--]]
+
+local hdmiName, vgaName, dpName = 'HDMI1', 'VGA1', 'DP1'
+local hdmiRes, vgaRes = '1920x1080', '1360x765_60.00'
+local primaryPos, secondaryPos = '0x0', '232x1080'
+local function xrandr(hdmi, vga) os.execute(string.format('xrandr %s %s', hdmi, vga)) end
+
+local out = tonumber(io.popen("echo '0\n1\n2' | rofi -dmenu"):read(1))
+
+hdmiOn = string.format("--output %s --primary --mode %s --pos %s --rotate normal", hdmiName, hdmiRes, primaryPos)
+hdmiOff = string.format("--output %s --off", hdmiName)
+vgaOn = string.format('--output %s --mode %s --pos %s --rotate normal', vgaName, vgaRes, secondaryPos)
+vgaOnAlt = string.format('--output %s --primary --mode %s --pos %s --rotate normal', vgaName, vgaRes, primaryPos)
+vgaOff = string.format('--output %s --off', vgaName)
+
+if out == 2 then xrandr(hdmiOn, vgaOn)
+elseif out == 1 then xrandr(hdmiOn, vgaOff)
+else xrandr(hdmiOff, vgaOnAlt) end
+
+-- os.execute("awesome-client ' awesome.restart() '")
+
+-- end

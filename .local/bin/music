@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+sudo mount -o compress_algorithm=zstd:6,compress_chksum,atgc,gc_merge,lazytime /dev/sdb1 /home/felix/Media/Music
+
+pkill mpd
+# refresh 
+mpd 
+

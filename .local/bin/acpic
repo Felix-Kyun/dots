@@ -1,0 +1,2 @@
+c(){ echo felix |sudo -S echo '' > /dev/null 2>&1 ; echo "$1" | sudo tee /proc/acpi/call >/dev/null && sudo cat /proc/acpi/call;echo;}
+c $1

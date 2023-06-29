@@ -1,0 +1,12 @@
+#!/bin/bash
+
+DEST=/sdcard 
+DISK=/dev/$1
+
+
+sudo umount $DISK
+sudo rmdir $DEST
+
+sudo mkdir $DEST
+sudo mount -t ext4 $DISK $DEST 
+sudo chown -R felix:felix $DEST

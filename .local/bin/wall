@@ -1,0 +1,3 @@
+#! /usr/bin/env bash
+
+swww img $(find /home/felix/Bulk/Wallpapers/ -type f | shuf -n 1) --transition-type random  --transition-step 30 --transition-fps 60

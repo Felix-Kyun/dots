@@ -1,0 +1,30 @@
+#!/bin/bash
+
+## TODO: add better log
+
+BAK_DIR=/sdcard/bak
+CONF_DIR=/home/felix/.config
+declare -a BAK_DIRS=(
+	"i3"
+	"alacritty"
+	"dunst"
+	"mpd"
+	"obsidian"
+	"picom"
+	"polybar"
+	"rofi"
+)
+ARR_LEN=${#BAK_DIRS[@]}
+
+for (( i=0; i<${ARR_LEN}; i++ ));
+do
+  #echo "index: $i, value: ${BAK_DIRS[$i]}"
+  if [ -d "$BAK_DIR/${BAK_DIRS[$i]}" ]; then
+	echo "dir exsists so not creating..."
+  else 
+	echo "making backup sub-dir"
+	mkdir $BAK_DIR/${BAK_DIRS[$i]}
+  fi
+  cp -r $CONF_DIR/${BAK_DIRS[$i]} $BAK_DIR/
+  echo "Done Backing Up ${BAK_DIR[$i]}..."
+done

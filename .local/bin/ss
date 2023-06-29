@@ -1,0 +1,43 @@
+#! /usr/bin/env bash
+
+
+SS_DIR=/home/felix/Pictures/ss/
+SS_NAME=${SS_DIR}$(date +'%r_%F' | sed 's/[: ]/-/g').png
+
+active_window() {
+  maim -i $(xdotool getactivewindow) $SS_NAME
+}
+
+full() {
+  maim $SS_NAME
+}
+
+copy() {
+  maim -s | xclip -selection clipboard -t image/png
+}
+
+crop() {
+  maim -u | feh -F - & maim -s -k $SS_NAME && kill $!
+}
+
+case $1 in 
+  active)
+    active_window
+    ;;
+
+  full) 
+    full
+    ;;
+
+  copy)
+    copy 
+    ;;
+
+  crop)
+    crop
+    ;;
+  *)
+    full 
+    ;;
+esac
+

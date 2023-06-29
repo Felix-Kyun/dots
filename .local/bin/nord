@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+
+# startup file for my nord rice
+# based on i3wm 
+
+
+# polybar 
+THEME=nord
+LOG_NAME=polybar_nord.log
+polybar-msg cmd quit #kill polybar if running
+# killall -q polybar # another way to kill polybar
+echo "---" | tee -a /tmp/$LOG_NAME
+polybar -c ~/.config/polybar/$THEME/config.ini bottom 2>&1 | tee -a /tmp/$LOG_NAME & disown
+
+
+

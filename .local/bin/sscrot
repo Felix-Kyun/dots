@@ -1,0 +1,4 @@
+#! /usr/bin/env bash 
+
+# bash script for hadling scrot as my home dir is getting dirty 
+scrot ~/Media/ScreenShots/scrot.png

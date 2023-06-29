@@ -1,0 +1,59 @@
+#! /usr/bin/env bash
+/home/felix/.local/bin/out
+# xrandr --newmode "1360x765_60.00"   84.50  1360 1432 1568 1776  765 768 773 795 -hsync +vsync
+# xrandr --addmode VGA-1 "1360x765_60.00"
+# xrandr --output VGA-1 --mode "1360x765_60.00"
+
+# sleep 1
+
+# vars 
+XSCT_TEMP=4500 # default 6500
+BRIGHTNESS=0.4 # default 1.0
+POLYBAR_THEME="nordzy"
+export $(dbus-launch)
+xrdb ~/.Xresources &
+# xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --rate 74.97 --pos 1920x0 --rotate normal & 
+# xrandr --output Virtual-1 --mode 1920x1080 &
+
+# set wallpaper 
+nitrogen --restore &
+
+# start compositor 
+# picom --experimental-backend -b 
+# xcompmgr &
+picom --experimental-backends -b &
+
+# start polybar
+# nord
+sleep 1 
+# xrandr --output eDP-1 --brightness $BRIGHTNESS
+# set night light 
+xsct $XSCT_TEMP $BRIGHTNESS & 
+
+# start polybar 
+/home/felix/.config/polybar/${POLYBAR_THEME}/start.sh & 
+
+# start kde connect 
+/usr/lib/kdeconnectd & 
+
+# late startup 
+# xset led named "Scroll Lock"
+xsetroot -cursor_name left_ptr &
+xset s 120 &
+#xmodmap -e "keysym Menu = Super_R"
+#setxkbmap -layout gb
+xinput set-prop "$(xinput list --name-only | grep -i touch)" "libinput Tapping Enabled" 1 &
+xinput set-prop 12 305 true &
+# xmodmap -e "keysym Caps_Lock = Escape"
+
+# option network manager starting
+nm-applet &
+# better to rely on nmtui or nmcli
+
+#pkill mpd 
+#mpd &
+#xautolock -time 2 -locker '/home/felix/.local/bin/lock' -detectsleep &
+
+# start fusuma
+# fusuma &
+# nextcloud &

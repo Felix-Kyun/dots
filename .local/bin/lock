@@ -1,0 +1,5 @@
+#! /usr/bin/env bash
+
+awesome-client 'require "config.widgets.lockscreen.lockscreen".lock()'
+sleep 5
+xset dpms force off

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+CONFIG=~/.config/polyhide
+
+if [[ ! -f $CONFIG ]]; then
+  touch $CONFIG
+  echo "1" > $CONFIG
+fi 
+
+STATUS=$(cat $CONFIG)
+
+if [[ $STATUS == 1 ]]; then
+  polybar-msg cmd quit
+  echo "0" > $CONFIG
+elif [[ $STATUS == 0 ]]; then 
+echo "---" | tee -a /tmp/polybar_nord.log 
+polybar -c ~/.config/polybar/nord-base/config.ini main 2>&1 | tee -a /tmp/$LOG_NAME & disown
+  echo "1" > $CONFIG
+else 
+  echo "err occured..."
+fi

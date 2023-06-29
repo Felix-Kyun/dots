@@ -1,0 +1,18 @@
+#! /usr/bin/env bash
+
+if [[ -f ./$1 ]]; then 
+    echo "file exists. " && exit 1 
+#     FILE_EXISTS=1
+fi
+
+touch ./$1 
+chmod +x ./$1
+# if [[ $FILE_EXISTS == 1 ]]; then 
+#     echo "#!/usr/bin/env bash" >> ./$!
+# else
+    echo "#!/usr/bin/env bash" > ./$1
+# fi 
+
+if [[ $2 == 1 ]]; then
+    nvim $1
+fi

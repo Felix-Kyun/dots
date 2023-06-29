@@ -1,0 +1,19 @@
+#! /usr/bin/env bash
+
+# get current audio level 
+CURRENT=$(pamixer --get-volume)
+
+case $1 in
+  '+')
+    NEW_VOLUME=$(($CURRENT + ${2}))
+    pactl set-sink-volume @DEFAULT_SINK@ +${2}%
+    notify-send "Volume increased to ${NEW_VOLUME}..."
+    ;;
+  '-')
+    NEW_VOLUME=$(($CURRENT - ${2}))
+    pactl set-sink-volume @DEFAULT_SINK@ -${2}%
+    notify-send "Volume decreased to ${NEW_VOLUME}..."
+    ;;
+  *)
+    notify-send "Volume is ${CURRENT}"
+esac

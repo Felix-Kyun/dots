@@ -1,0 +1,20 @@
+#! /usr/bin/env bash
+
+SELECTION=$(echo -e 'Active Window\nFull Screen\nCopy To Clipboard\nCrop'| rofi -dmenu)
+SS_BIN=/home/felix/.local/bin/ss
+
+case $SELECTION in
+  "Active Window")
+    $SS_BIN active
+    ;;
+  "Full Screen")
+    $SS_BIN full 
+    ;;
+  "Copy To Clipboard")
+    $SS_BIN copy
+    ;;
+  "Crop")
+    $SS_BIN crop 
+    ;;
+esac
+

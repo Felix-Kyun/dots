@@ -1,0 +1,24 @@
+#! /usr/bin/env bash 
+
+# Made By Felix Kyun 
+# Simple Script To Manage Display...
+
+SELECTED_OPTION=$(echo -e "Internal\nExternal\nExternal @75hz\nBoth\nBoth @75hz" | rofi -dmenu)
+
+case $SELECTED_OPTION in
+  'Internal')
+    xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --off
+    ;;
+  'External')
+  xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 --rate 60.00 --pos 0x0 --rotate normal
+  ;;
+  'External @75hz')
+  xrandr --output eDP-1 --off --output HDMI-1 --primary --mode 1920x1080 --rate 74.97  --pos 0x0 --rotate normal
+  ;;
+  'Both')
+  xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --rate 60.00 --pos 1920x0 --rotate normal
+  ;;
+'Both @75hz')
+  xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1 --mode 1920x1080 --rate 74.97 --pos 1920x0 --rotate normal
+  ;;
+esac

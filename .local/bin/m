@@ -1,0 +1,8 @@
+#! /usr/bin/env bash
+
+# start mpd
+mpd &
+
+# start mpdris
+mpDris2 2>/dev/null &
+

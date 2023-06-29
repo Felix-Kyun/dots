@@ -1,0 +1,43 @@
+#!/bin/bash
+
+RED=$(tput setaf 1)
+GREEN=$(tput setaf 2)
+YELLOW=$(tput setaf 3)
+RESET=$(tput sgr0)
+
+cgh() {
+  /usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME $@
+}
+
+sep() { 
+	echo -e "────────────────────────────────────────────"
+}
+
+echo "${YELLOW}MAKING BACKUP ...${RESET}"
+
+echo -e "\n${RED}> CHECKING STATUS OF FILES ...${RESET}"
+sep
+cgh status 
+sep
+echo
+sleep 2
+
+echo -e "${RED}> ADDING FILES ...${RESET}"
+sep
+cgh add -u
+sep
+echo
+
+echo -e "${GREEN}> MAKING BACKUP ... ${RESET}"
+sep
+echo -e "${YELLOW}> COMMIT MESSAGE => 'Daily Backup [$(date +%r) | $(date +'%d %B %Y')]'${RESET}\n"
+/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME commit -m  "Daily Backup [$(date +%r) | $(date +'%d %B %Y')]"
+sep 
+echo
+
+echo -e "${GREEN}PUSHING TO GITHUB ...${RESET}"
+sep
+cgh push -u origin main
+sep 
+
+echo -e "\n${GREEN}> DONE BACKING UP ... ${RESET}"

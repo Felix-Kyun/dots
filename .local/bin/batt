@@ -1,0 +1,16 @@
+#! /usr/bin/env bash
+
+SELECTED_MODE=$(echo -e 'Enable Battery Conservation Mode\nDisable Battery Conservation Mode' | rofi -dmenu)
+MODE='0'
+
+case $SELECTED_MODE in
+  'Enable Battery Conservation Mode')
+    MODE=1
+    ;;
+  'Disable Battery Conservation Mode')
+    MODE=0
+    ;;
+esac
+
+echo "felix" | sudo -S echo '' > /dev/null 2>&1;
+echo $MODE | sudo tee /sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode 2>&1;
