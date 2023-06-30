@@ -1,0 +1,8 @@
+# Run Funcction To compile and run it in one go
+
+runc() {
+  TMP_FILE=$(mktemp)
+  gcc $1 -o $TMP_FILE;
+  chmod +x $TMP_FILE;
+  $TMP_FILE;
+}

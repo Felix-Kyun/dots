@@ -44,5 +44,6 @@ path+=('/home/felix/.local/bin')
 # Enable Other Configs
 . ~/.zsh_aliases
 . ~/.zsh_vars
+. ~/.zsh_functions
 # Finally Enable p10k
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
