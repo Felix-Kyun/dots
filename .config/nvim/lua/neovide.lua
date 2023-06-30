@@ -11,5 +11,5 @@ if v.neovide then
   v.neovide_cursor_trail_size = 0.75
   v.neovide_cursor_antialiasing = true
   v.neovide_cursor_vfx_mode = "pixiedust"
-  v.neovide_transparency = 0.3
+  v.neovide_transparency = 0.7
 end

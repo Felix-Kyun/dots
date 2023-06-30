@@ -16,6 +16,8 @@ return require('packer').startup(function(use)
 
   -- nord theme
   use 'shaunsingh/nord.nvim'
+  -- use 'gbprod/nord.nvim'
+  -- use 'Mofiqul/dracula.nvim'
 
   -- nest nvim 
   use {
@@ -84,12 +86,12 @@ return require('packer').startup(function(use)
   }
 
   --fidget for lsp
-  use {
+  --[[ use {
     'j-hui/fidget.nvim',
     event = 'BufRead',
     after = 'lualine.nvim',
     config = [[require 'config.fidget']]
-  }
+  -- } ]]
 
   -- indent line 
   use {

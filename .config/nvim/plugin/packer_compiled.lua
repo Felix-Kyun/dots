@@ -136,17 +136,6 @@ _G.packer_plugins = {
     path = "/home/felix/.local/share/nvim/site/pack/packer/opt/dashboard-nvim",
     url = "https://github.com/glepnir/dashboard-nvim"
   },
-  ["fidget.nvim"] = {
-    config = { "require 'config.fidget'" },
-    load_after = {
-      ["lualine.nvim"] = true
-    },
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/home/felix/.local/share/nvim/site/pack/packer/opt/fidget.nvim",
-    url = "https://github.com/j-hui/fidget.nvim"
-  },
   ["friendly-snippets"] = {
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/friendly-snippets",
@@ -195,7 +184,6 @@ _G.packer_plugins = {
     url = "https://github.com/onsails/lspkind.nvim"
   },
   ["lualine.nvim"] = {
-    after = { "fidget.nvim" },
     config = { "require 'config.lualine'" },
     loaded = false,
     needs_bufread = false,
@@ -274,6 +262,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["nvim-treesitter-context"] = {
+    config = { "require 'config.lspkind'" },
     loaded = true,
     path = "/home/felix/.local/share/nvim/site/pack/packer/start/nvim-treesitter-context",
     url = "https://github.com/nvim-treesitter/nvim-treesitter-context"
@@ -328,7 +317,7 @@ _G.packer_plugins = {
     url = "https://github.com/nvim-telescope/telescope-symbols.nvim"
   },
   ["telescope.nvim"] = {
-    after = { "telescope-fzf-native.nvim", "telescope-symbols.nvim" },
+    after = { "telescope-symbols.nvim", "telescope-fzf-native.nvim" },
     loaded = false,
     needs_bufread = true,
     only_cond = false,
@@ -395,6 +384,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for lsp-zero.nvim]], true)
 try_loadstring("\27LJ\2\n*\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\15config.lsp\frequire\0", "config", "lsp-zero.nvim")
 time([[Config for lsp-zero.nvim]], false)
+-- Config for: nvim-treesitter-context
+time([[Config for nvim-treesitter-context]], true)
+require 'config.lspkind'
+time([[Config for nvim-treesitter-context]], false)
 -- Config for: nest.nvim
 time([[Config for nest.nvim]], true)
 require 'config.nest'
@@ -403,11 +396,11 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au WinScrolled * ++once lua require("packer.load")({'neoscroll.nvim'}, { event = "WinScrolled *" }, _G.packer_plugins)]]
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'lspkind.nvim', 'bufferline.nvim', 'Comment.nvim', 'vim-surround', 'vim-repeat', 'yuck.vim', 'true-zen.nvim', 'fidget.nvim', 'trouble.nvim', 'indent-blankline.nvim', 'gitsigns.nvim', 'hop.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
-vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim', 'nvim-web-devicons', 'lualine.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au CursorHold * ++once lua require("packer.load")({'telescope.nvim', 'splitjoin.vim', 'nvim-tree.lua', 'nvim-colorizer.lua', 'Navigator.nvim', 'which-key.nvim', 'nvim-treesitter', 'toggleterm.nvim'}, { event = "CursorHold *" }, _G.packer_plugins)]]
+vim.cmd [[au CursorHold * ++once lua require("packer.load")({'splitjoin.vim', 'nvim-tree.lua', 'telescope.nvim', 'nvim-colorizer.lua', 'Navigator.nvim', 'which-key.nvim', 'toggleterm.nvim', 'nvim-treesitter'}, { event = "CursorHold *" }, _G.packer_plugins)]]
 vim.cmd [[au InsertCharPre * ++once lua require("packer.load")({'nvim-autopairs'}, { event = "InsertCharPre *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'gitsigns.nvim', 'bufferline.nvim', 'yuck.vim', 'vim-surround', 'vim-repeat', 'Comment.nvim', 'true-zen.nvim', 'lspkind.nvim', 'trouble.nvim', 'indent-blankline.nvim', 'hop.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au VimEnter * ++once lua require("packer.load")({'dashboard-nvim', 'nvim-web-devicons', 'lualine.nvim'}, { event = "VimEnter *" }, _G.packer_plugins)]]
+vim.cmd [[au WinScrolled * ++once lua require("packer.load")({'neoscroll.nvim'}, { event = "WinScrolled *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 
