@@ -4,7 +4,7 @@
 --                 / __/ /  __/ / />  <     / /| / /_/ / /_/ / / / /
 --                /_/    \___/_/_/_/|_|____/_/ |_\__, /\__,_/_/ /_/
 --                                   /_____/    /____/
--- 				                nvim config [disable useless plugins]
+-- 				               nvim config [disable useless plugins]
 
 local disabled_built_ins = {
     "netrw",

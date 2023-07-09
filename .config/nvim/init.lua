@@ -6,10 +6,7 @@
 --                                   /_____/    /____/
 -- 				nvim config [init.lua]
 
-require 'impatient'
-require 'theme'
+
 require 'options'
-require 'plugins'
-require 'keys'
 require 'disable-plugins'
-require 'neovide'
+require 'plugin'
