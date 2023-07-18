@@ -19,6 +19,7 @@ window#waybar {
 #window,
 #custom-arch_logo,
 #pulseaudio,
+#cava,
 #battery {
   background: rgba(46, 52, 64, 0.30);
   margin: 4px 2px;
@@ -26,7 +27,8 @@ window#waybar {
   border-radius: 4px;
 }
 
-#window {
+#window,
+#cava {
   color: #88C0D0;
 }
 
@@ -98,3 +100,4 @@ window#waybar {
   color: transparent;
   box-shadow: none;
 }
+
